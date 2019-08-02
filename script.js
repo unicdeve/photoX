@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.nav-button').toggleClass('change');
   });
 
+  // animate nav on scroll
   $(window).scroll(function () {
     let position = $(this).scrollTop();
     if (position >= 200) {
@@ -12,6 +13,7 @@ $(document).ready(function () {
     }
   });
 
+  // show our mission animation on scroll
   $(window).scroll(function () {
     let position = $(this).scrollTop();
     if (position >= 650) {
@@ -21,5 +23,19 @@ $(document).ready(function () {
       $('.camera-img').removeClass('fromLeft');
       $('.mission-text').removeClass('fromRight');
     }
+  });
+
+  // gallery filter
+  $('.gallery-list-item').click(function () {
+    let value = $(this).attr('data-filter');
+    if (value === 'all') {
+      $('.filter').show(300);
+    } else {
+      $('.filter').not('.' + value).hide(300);
+      $('.filter').filter('.' + value).show(300);
+    }
+  });
+  $('.gallery-list-item').click(function () {
+    $(this).addClass('active-item').siblings().removeClass('active-item');
   });
 });
