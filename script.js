@@ -38,4 +38,19 @@ $(document).ready(function () {
   $('.gallery-list-item').click(function () {
     $(this).addClass('active-item').siblings().removeClass('active-item');
   });
+
+  // price animation effect
+  $(window).scroll(function () {
+    let position = $(this).scrollTop();
+    console.log(position);
+    if (position >= 4500) {
+      $('.card-1').addClass('moveFromLeft');
+      $('.card-2').addClass('moveFromBottom');
+      $('.card-3').addClass('moveFromRight');
+    } else {
+      $('.card-1').removeClass('moveFromLeft');
+      $('.card-2').removeClass('moveFromBottom');
+      $('.card-3').removeClass('moveFromRight');
+    }
+  });
 });
